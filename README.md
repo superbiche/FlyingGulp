@@ -3,6 +3,7 @@
 
 ## ToDo
 
+* Create the yeoman generator repo and link it here (much easier to use with yo)  
 * Add documentation  
 * Add SVG sprites generation  
 * Support JPG sprites  
