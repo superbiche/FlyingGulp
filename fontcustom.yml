@@ -1,0 +1,19 @@
+font_name: fontcustom
+css_selector: .icon-{{glyph}}
+css_prefix: icon-
+preprocessor_path: "../fonts/fontcustom"
+autowidth: false
+no_hash: false
+force: false
+debug: false
+quiet: false
+
+input:
+  vectors: ../sites/all/themes/test/assets/src/images/vectors # required
+
+output:
+  fonts: ../sites/all/themes/test/assets/src/fonts/fontcustom # required
+  css: ../sites/all/themes/test/assets/src/scss/base
+  preview: docs
+
+templates: [ scss, preview ]
