@@ -9,11 +9,11 @@ debug: false
 quiet: false
 
 input:
-  vectors: ../sites/all/themes/test/assets/src/images/vectors # required
+  vectors: ../assets/src/images/vectors # required
 
 output:
-  fonts: ../sites/all/themes/test/assets/src/fonts/fontcustom # required
-  css: ../sites/all/themes/test/assets/src/scss/base
+  fonts: ../assets/src/fonts/fontcustom # required
+  css: ../assets/src/scss/variables
   preview: docs
 
 templates: [ scss, preview ]

@@ -7,8 +7,6 @@
     "colorbox": "latest",
     "jquery-cycle2": "latest",
     "URIjs": "latest",
-    "jquery.cookie": "1.4.1",
-    "jquery-fancyDrupalMessages": "https://github.com/superbiche/jquery-fancyDrupalMessages.git",
     "jquery-ui-selectmenu": "https://github.com/fnagel/jquery-ui.git#selectmenu"
   },
   "exportsOverride": {

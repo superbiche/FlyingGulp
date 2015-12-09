@@ -1,17 +1,13 @@
 /**
  * Gulp Workflow project configuration
  */
-var themeName         = 'test',
+var projectUrl        = 'http://test',
 
-    projectUrl        = 'http://test',
+    srcAssets         = '../assets/src',
 
-    src               = '../sites/all/themes/' + themeName,
+    buildAssets       = '../assets/build',
 
-    srcAssets         = '../sites/all/themes/' + themeName + '/assets/src',
-
-    buildAssets       = '../sites/all/themes/' + themeName + '/assets/build',
-
-    productionAssets  = '../sites/all/themes/' + themeName + '/assets',
+    productionAssets  = '../assets',
 
     bowerJsonPath     = '../',
 
