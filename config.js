@@ -2,19 +2,12 @@
  * Gulp Workflow project configuration
  */
 var projectUrl        = 'http://test',
-
     srcAssets         = '../assets/src',
-
     buildAssets       = '../assets/build',
-
     productionAssets  = '../assets',
-
     bowerJsonPath     = '../',
-
     sassIgnore        = ['KNACSS', 'bourbon'],
-
     sassIgnorePrefix  = srcAssets + '/scss/vendor',
-
     sassIgnoreLength  = sassIgnore.length;
 
 var jsList = require(srcAssets + '/javascripts/scripts-map.js');
@@ -151,23 +144,6 @@ module.exports = {
       }
     }
   },
-  revision: {
-    src: {
-      assets: [
-        buildAssets + '/css/*.css',
-        buildAssets + '/js/*.js',
-        buildAssets + '/img/**/*'
-      ],
-      base: buildAssets
-    },
-    dest: {
-      assets: productionAssets,
-      manifest: {
-        name: 'revision-manifest.json',
-        path: productionAssets
-      }
-    }
-  },
   sass: {
     src: sassIgnore.concat([srcAssets + '/scss/*.{sass,scss}']),
     dest: buildAssets + '/css',
@@ -186,16 +162,6 @@ module.exports = {
     },
     vendor: {
       src: jsList.getBundleList('vendor', srcAssets + '/')
-    }
-  },
-  scsslint: {
-    src: [
-      srcAssets + '/scss/**/*.{sass,scss}',
-      '!' + srcAssets + '/scss/vendor/**/*.{sass,scss}',
-      '!' + srcAssets + '/scss/base/_sprites.scss'
-    ],
-    options: {
-      bundleExec: true
     }
   },
   sprites: {
@@ -241,22 +207,4 @@ module.exports = {
     templates: [src + '/**/*.{html,inc,php}']
 
   }
-  /*,
-  browserify: {
-    // Enable source maps
-    debug: true,
-    // Additional file extensions to make optional
-    extensions: ['.coffee', '.hbs'],
-    // A separate bundle will be generated for each
-    // bundle config in the list below
-    bundleConfigs: [{
-      entries: srcAssets + '/javascripts/application.js',
-      dest: buildAssets + '/js',
-      outputName: 'app.js'
-    }, {
-      entries: srcAssets + '/javascripts/head.js',
-      dest: buildAssets + '/js',
-      outputName: 'head.js'
-    }]
-  }*/
 };

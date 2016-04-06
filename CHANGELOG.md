@@ -1,5 +1,11 @@
 # Changelog 
-
+## 0.2.8 -
+  * This is mainly a cleaning release to enhance on a good basis 
+    * Removed publish task (not used, and will not be by our team for now)
+    * Removed revision related tasks & config (not used for now, will come back when used again)
+    * Cleaned config file
+    * Re-added package.json in repo
+    * Removed scss-lint tasks to try to get rid on Ruby tasks here
 ## 0.2.7 - 
   * Moved the yeoman generator wrapping this workflow to another repo to ease development  
   * Upgraded packages to use with Node.js v5.x
