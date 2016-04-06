@@ -10,7 +10,7 @@ var config = require('../../config').watch;
  */
 gulp().task('watch', ['browsersync:development'], function () {
   watch()(config.sass, function() {
-    runSequence()(['sass', 'scsslint']);
+    runSequence()(['sass']);
   });
 
   watch()(config.scripts.app, function() {
