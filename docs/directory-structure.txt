@@ -1,1 +1,50 @@
-@todo update
+(in progress, @todo add generated production assets)
+├── assets
+│   ├── build
+│   │   ├── css
+│   │   │   ├── => content will be generated on watch/build
+│   │   ├── fonts
+│   │   │   ├── => content will be generated on watch/build
+│   │   ├── img
+│   │   │   ├── => content will be generated on watch/build
+│   │   └── js
+│   │       └── => content will be generated on watch/build
+│   ├── css => content will be generated on build:production
+│   ├── fonts => content will be generated on build:production
+│   ├── js => content will be generated on build:production
+│   ├── img => content will be generated on build:production
+│   └── src
+│       ├── bower.json => contains your bower dependencies
+│       ├── fonts
+│       │   └── => content will be generated on watch/build
+│       ├── images
+│       │   ├── => place your images here. sprites will be generated here on watch/build
+│       │   ├── sprites
+│       │   │   ├── jpg
+│       │   │   ├── png
+│       │   │   └── svg
+│       │   └── vectors
+│       │       └── => here lay the vectors used to generate a custom icon-font
+│       ├── javascripts
+│       │   ├── application.js => js that is common to the whole site
+│       │   ├── head.js => js that should be loaded in the header, eg. Modernizr
+│       │   ├── helpers.js => js helpers: common functions etc.
+│       │   ├── partials
+│       │   │   └── => logic regarding site sections
+│       │   ├── polyfills
+│       │   │   └── => any js polyfill
+│       │   ├── scripts-map.js => mapping what you add in application.js/head.js/vendor.js
+│       │   └── vendor
+│       │       └── => any js plugin that you don't manage with Bower (you really shouldn't)
+│       └── scss
+│           ├── _old.scss
+│           ├── admin.scss
+│           ├── base
+│           │   ├── _fontcustom.scss
+│           │   └── _sprites.scss
+│           ├── components
+│           ├── helpers
+│           ├── layout
+│           ├── pages
+│           ├── print.scss
+│           ├── screen.scss
