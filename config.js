@@ -123,7 +123,10 @@ module.exports = {
   optimize: {
     css: {
       src: buildAssets + '/css/*.css',
-      dest: productionAssets + '/css/'
+      dest: productionAssets + '/css/',
+      options: {
+        compatibility: 'ie8'
+      }
     },
     js: {
       head: {
@@ -238,7 +241,7 @@ module.exports = {
     },
     sprites: srcAssets + '/images/sprites/**/*',
     fonts: [srcAssets + '/fonts/**/*'],
-    templates: [src + '/**/*.{html,inc,php}']
+    templates: [srcAssets + '/**/*.{html,inc,php}']
 
   }
   /*,

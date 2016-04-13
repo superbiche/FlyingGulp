@@ -1,6 +1,6 @@
 var lazyReq = require('lazy-req')(require);
 var gulp = lazyReq('gulp');
-var minifycss = lazyReq('gulp-minify-css');
+var minifycss = lazyReq('gulp-clean-css');
 var base64 = lazyReq('gulp-base64');
 var size = lazyReq('gulp-size');
 var rename = lazyReq('gulp-rename');
@@ -16,7 +16,7 @@ gulp().task('optimize:css', function () {
   return gulp().src(config.optimize.css.src)
     .pipe(base64()(config.base64.options))
     .pipe(gmq()())
-    .pipe(minifycss()())
+    .pipe(cleanCSS()(config.optimize.css.options))
     .pipe(rename()({
       suffix: '.min'
     }))
