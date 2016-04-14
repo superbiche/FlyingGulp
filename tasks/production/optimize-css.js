@@ -1,22 +1,22 @@
-var lazyReq = require('lazy-req')(require);
-var gulp = lazyReq('gulp');
-var minifycss = lazyReq('gulp-minify-css');
-var base64 = lazyReq('gulp-base64');
-var size = lazyReq('gulp-size');
-var rename = lazyReq('gulp-rename');
-var gmq = lazyReq('gulp-group-css-media-queries');
-var config = require('../../config');
-var messages = require('../../config').messages.sass;
+const lazyReq = require('lazy-req')(require);
+const gulp = lazyReq('gulp');
+const cleanCSS = lazyReq('gulp-clean-css');
+const base64 = lazyReq('gulp-base64');
+const size = lazyReq('gulp-size');
+const rename = lazyReq('gulp-rename');
+const gmq = lazyReq('gulp-group-css-media-queries');
+const config = require('../../config');
+const messages = require('../../config').messages.sass;
 
 /**
  * Run base64 on the css, then minify it and write .min.css files
  * Don't optimize .min.css files (@todo should be cleaned before)
  */
-gulp().task('optimize:css', function () {
+gulp().task('optimize:css', () => {
   return gulp().src(config.optimize.css.src)
     .pipe(base64()(config.base64.options))
     .pipe(gmq()())
-    .pipe(minifycss()())
+    .pipe(cleanCSS()(config.optimize.css.options))
     .pipe(rename()({
       suffix: '.min'
     }))

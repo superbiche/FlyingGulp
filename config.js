@@ -116,7 +116,10 @@ module.exports = {
   optimize: {
     css: {
       src: buildAssets + '/css/*.css',
-      dest: productionAssets + '/css/'
+      dest: productionAssets + '/css/',
+      options: {
+        compatibility: 'ie8'
+      }
     },
     js: {
       head: {
@@ -135,12 +138,11 @@ module.exports = {
       dest: productionAssets + '/js'
     },
     images: {
-      src: buildAssets + '/img/**/*.{jpg,jpeg,png,gif}',
+      src: buildAssets + '/img/**/*.{jpg,jpeg,png,gif,svg}',
       dest: productionAssets + '/img/',
       options: {
-        optimizationLevel: 3,
         progressive: true,
-        interlaced: true
+        svgoPlugins: [{removeViewBox: false}]
       }
     }
   },
@@ -151,7 +153,7 @@ module.exports = {
       errLogToConsole: true
     }
   },
-  scripts: { // legacy js handling, @todo replace with browserify in v1.0
+  scripts: {
     dest: buildAssets + '/js/',
     head: {
       src: jsList.getBundleList('head', srcAssets + '/'),
@@ -165,7 +167,7 @@ module.exports = {
     }
   },
   sprites: {
-    src: srcAssets + '/images/sprites/**/*.png',
+    src: srcAssets + '/images/sprites',
     dest: {
       css: srcAssets + '/scss/base/',
       image: srcAssets + '/images/'
@@ -204,7 +206,7 @@ module.exports = {
     },
     sprites: srcAssets + '/images/sprites/**/*',
     fonts: [srcAssets + '/fonts/**/*'],
-    templates: [src + '/**/*.{html,inc,php}']
+    templates: [srcAssets + '/**/*.{html,inc,php}']
 
   }
 };

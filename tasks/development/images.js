@@ -1,14 +1,15 @@
-var lazyReq = require('lazy-req')(require);
-var gulp = lazyReq('gulp');
-var changed = lazyReq('gulp-changed');
-var imagemin = lazyReq('gulp-imagemin');
-var config = require('../../config').images;
-var imageMinConfig = require('../../config').optimize.images;
+const lazyReq = require('lazy-req')(require);
+const gulp = lazyReq('gulp');
+const changed = lazyReq('gulp-changed');
+const imagemin = lazyReq('gulp-imagemin');
+const pngquant = lazyReq('imagemin-pngquant');
+const config = require('../../config').images;
+const imageMinConfig = require('../../config').optimize.images;
 
-gulp().task('images', function (cb) {
+gulp().task('images', (cb) => {
   return gulp().src(config.src)
-    .pipe(changed()(config.dest))
-    .pipe(imagemin()(imageMinConfig.options))
+    // .pipe(changed()(config.dest))
+    .pipe(imagemin()(Object.assign(imageMinConfig.options, { use: [pngquant()()] })))
     .pipe(gulp().dest(config.dest));
   cb;
 });

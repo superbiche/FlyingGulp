@@ -21,8 +21,6 @@
   when you run `gulp`.
 */
 
-
-
 var requireDir = require('require-dir');
 
 // Require all tasks in gulp/tasks recursively
