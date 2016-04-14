@@ -178,7 +178,7 @@ module.exports = {
       errLogToConsole: true
     }
   },
-  scripts: { // legacy js handling, @todo replace with browserify in v1.0
+  scripts: {
     dest: buildAssets + '/js/',
     head: {
       src: jsList.getBundleList('head', srcAssets + '/'),
@@ -202,7 +202,7 @@ module.exports = {
     }
   },
   sprites: {
-    src: srcAssets + '/images/sprites/**/*.png',
+    src: srcAssets + '/images/sprites',
     dest: {
       css: srcAssets + '/scss/base/',
       image: srcAssets + '/images/'
