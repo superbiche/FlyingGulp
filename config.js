@@ -145,12 +145,11 @@ module.exports = {
       dest: productionAssets + '/js'
     },
     images: {
-      src: buildAssets + '/img/**/*.{jpg,jpeg,png,gif}',
+      src: buildAssets + '/img/**/*.{jpg,jpeg,png,gif,svg}',
       dest: productionAssets + '/img/',
       options: {
-        optimizationLevel: 3,
         progressive: true,
-        interlaced: true
+        svgoPlugins: [{removeViewBox: false}]
       }
     }
   },
