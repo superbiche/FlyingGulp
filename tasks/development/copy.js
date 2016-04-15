@@ -15,7 +15,7 @@ gulp().task('copy:fonts:development', function () {
 /**
  * Copy generated icon fonts
  */
-gulp().task('copy:iconFonts', ['fontcustom'], function () {
+gulp().task('copy:iconFonts', ['iconfonts'], function () {
   return gulp().src(config.iconFonts.src)
     .pipe(changed()(config.iconFonts.dest))
     .pipe(gulp().dest(config.iconFonts.dest))

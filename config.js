@@ -99,6 +99,24 @@ module.exports = {
       dest: buildAssets + '/fonts/fontcustom'
     }
   },
+  iconfonts: {
+    src: srcAssets + '/images/vectors/**/*.svg',
+    dest: srcAssets + '/fonts/icons/',
+    options: {
+      font: {
+        fontName: 'icons',
+        prependUnicode: true,
+        formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
+        autohint: true,
+        normalize: true
+      },
+      css: {
+        templatePath: 'templates/_icons.scss',
+        dest: srcAssets + '/scss/base'
+      }
+    },
+
+  },
   images: {
     src: [
       srcAssets + '/images/**/*', 
