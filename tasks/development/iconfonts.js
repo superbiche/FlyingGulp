@@ -9,16 +9,16 @@ const runTimestamp = Math.round(Date.now() / 1000);
  */
 gulp.task('iconfonts', ['clean:iconFonts'], (cb) => {
   gulp.src(config.src)
-    .pipe(iconfont(Object.assign(config.options.font, { timestamp: runTimestamp })))
-    .on('glyphs', function (glyphs) {
-      gulp.src(config.options.css.templatePath)
+    .pipe(iconfont(Object.assign(config.options, { timestamp: runTimestamp })))
+    .on('glyphs', function (glyphs, options) {
+      gulp.src(config.options.cssTemplatePath)
         .pipe(consolidate('lodash', {
-          glyphs: glyphs
-          , fontName: 'icons'
-          , fontPath: '../fonts/'
-          , className: 'icon'
+          glyphs: glyphs, 
+          fontName: options.fontName,
+          fontPath: options.cssFontPath,
+          className: options.cssClassName
         }))
-        .pipe(gulp.dest(config.options.css.dest));
+        .pipe(gulp.dest(config.options.cssDest));
     })
     .pipe(gulp.dest(config.dest));
   cb;

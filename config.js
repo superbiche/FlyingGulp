@@ -101,19 +101,17 @@ module.exports = {
   },
   iconfonts: {
     src: srcAssets + '/images/vectors/**/*.svg',
-    dest: srcAssets + '/fonts/icons/',
+    dest: srcAssets + '/fonts/iconfont/',
     options: {
-      font: {
-        fontName: 'icons',
-        prependUnicode: true,
-        formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
-        autohint: true,
-        normalize: true
-      },
-      css: {
-        templatePath: 'templates/_icons.scss',
-        dest: srcAssets + '/scss/base'
-      }
+      fontName: 'iconfont',
+      prependUnicode: true,
+      formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
+      autohint: true,
+      normalize: true,
+      cssTemplatePath: 'templates/_iconfont.scss',
+      cssFontPath: '../fonts/iconfont/',
+      cssDest: srcAssets + '/scss/base',
+      cssClassName: 'icon'
     },
 
   },
