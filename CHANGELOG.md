@@ -1,4 +1,7 @@
 # Changelog 
+## 0.3.0 - 
+  * Changed the icon font generator to gulp-iconfont  
+  * Updated deprecated dependencies  
 ## 0.2.8 -
   * This is mainly a cleaning release to enhance on a good basis 
     * Removed publish task (not used, and will not be by our team for now)
