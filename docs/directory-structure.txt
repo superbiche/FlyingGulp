@@ -40,7 +40,7 @@
 │           ├── _old.scss
 │           ├── admin.scss
 │           ├── base
-│           │   ├── _fontcustom.scss
+│           │   ├── _iconfont.scss
 │           │   └── _sprites.scss
 │           ├── components
 │           ├── helpers

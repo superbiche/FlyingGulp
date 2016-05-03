@@ -86,7 +86,11 @@ module.exports = {
   copy: {
     fonts: {
       development: {
-        src: [srcAssets + '/fonts/**/*', '!' + srcAssets + '/fonts/fontcustom', '!' + srcAssets + '/fonts/fontcustom/**/*'], // ignore font-icons folder
+        src: [
+          srcAssets + '/fonts/**/*',
+          '!' + srcAssets + '/fonts/iconfont',
+          '!' + srcAssets + '/fonts/iconfont/**/*'
+        ],
         dest: buildAssets + '/fonts'
       },
       production: {
@@ -95,8 +99,8 @@ module.exports = {
       }
     },
     iconFonts: {
-      src: srcAssets + '/fonts/fontcustom/**/*',
-      dest: buildAssets + '/fonts/fontcustom'
+      src: srcAssets + '/fonts/iconfont/**/*',
+      dest: buildAssets + '/fonts/iconfont'
     }
   },
   iconfonts: {
@@ -117,7 +121,7 @@ module.exports = {
   },
   images: {
     src: [
-      srcAssets + '/images/**/*', 
+      srcAssets + '/images/**/*.{png,jpg,svg,gif,ico}', 
       '!' + srcAssets + '/images/{sprites,vectors}', 
       '!' + srcAssets + '/images/{sprites,vectors}/**/*'
     ],

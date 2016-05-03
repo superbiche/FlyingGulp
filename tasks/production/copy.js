@@ -11,12 +11,3 @@ gulp().task('copy:fonts:production', function () {
     .pipe(changed()(config.fonts.production.dest))
     .pipe(gulp().dest(config.fonts.production.dest))
 });
-
-/**
- * Copy generated icon fonts
- */
-gulp().task('copy:iconFonts', ['fontcustom'], function () {
-  return gulp().src(config.iconFonts.src)
-    .pipe(changed()(config.iconFonts.dest))
-    .pipe(gulp().dest(config.iconFonts.dest))
-});
