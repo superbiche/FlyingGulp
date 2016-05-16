@@ -11,5 +11,5 @@ gulp().task('images', (cb) => {
     .pipe(changed()(config.dest))
     .pipe(imagemin()(Object.assign(imageMinConfig.options, { use: [pngquant()()] })))
     .pipe(gulp().dest(config.dest));
-  cb;
+  cb();
 });

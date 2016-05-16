@@ -5,7 +5,7 @@ var runSequence = lazyReq('run-sequence');
 /**
  * Run all tasks needed for a build in defined order
  */
-gulp().task('build', function (cb) {
+gulp().task('build', (cb) => {
   runSequence()(
     'clean',
     'sprites',

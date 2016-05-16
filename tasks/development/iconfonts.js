@@ -21,5 +21,5 @@ gulp.task('iconfonts', ['clean:iconFonts'], (cb) => {
         .pipe(gulp.dest(config.options.cssDest));
     })
     .pipe(gulp.dest(config.dest));
-  cb;
+  cb();
 });

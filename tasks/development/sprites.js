@@ -11,7 +11,7 @@ var glob = require('glob').sync;
 /**
  * Generate sprites and css files from PNGs
  */
-gulp().task('sprites', function () {
+gulp().task('sprites', (cb) => {
   var spritesPath = config.src,
       sprite = {},
       filePath;
@@ -37,6 +37,7 @@ gulp().task('sprites', function () {
       sprite.data.css.pipe(gulp().dest(config.dest.css));
     }
   });
+  cb();
   // Process each sprite
 
 
