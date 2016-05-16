@@ -13,7 +13,7 @@ var messages = require('../../config').messages.sass;
  * Generate CSS from SCSS
  * Build sourcemaps
  */
-gulp().task('sass', function () {
+gulp().task('sass', () => {
   // Prevent reading sourcemaps to autoprefix them or make sourcemaps of sourcemaps
   var sassFilter = filter()(['*.css', '!*.map']);
 
@@ -27,5 +27,5 @@ gulp().task('sass', function () {
     .pipe(sassFilter)
     .pipe(autoprefixer()(config.autoprefixer))
     .pipe(sassFilter.restore())
-    .pipe(gulp().dest(config.sass.dest))
+    .pipe(gulp().dest(config.sass.dest));
 });

@@ -8,16 +8,16 @@ var removeLines = lazyReq('gulp-remove-lines');
 var runSequence = lazyReq('run-sequence');
 var config = require('../../config').optimize.js;
 
-gulp().task('optimize:js', function (cb) {
+gulp().task('optimize:js', (cb) => {
   runSequence()([
       'optimize:js:head',
       'optimize:js:footer'
     ],
-    cb
+    cb();
   );
 });
 
-gulp().task('optimize:js:head', function (cb) {
+gulp().task('optimize:js:head', (cb) => {
   return gulp().src(config.head.src)
     .pipe(concat()(config.head.name))
     .pipe(removeLines()({
@@ -34,7 +34,7 @@ gulp().task('optimize:js:head', function (cb) {
   cb();
 });
 
-gulp().task('optimize:js:footer', function (cb) {
+gulp().task('optimize:js:footer', (cb) => {
   return gulp().src(config.footer.src)
     .pipe(uglify()())
     .pipe(concat()(config.footer.name))

@@ -8,44 +8,45 @@ var config = require('../../config').watch;
 /**
  * Start browsersync task and then watch files for changes
  */
-gulp().task('watch', ['browsersync:development'], function () {
-  watch()(config.sass, function() {
-    runSequence()(['sass']);
+gulp().task('watch', ['browsersync:development'],  (cb) => {
+  watch()(config.sass, (cb) => {
+    runSequence()('sass', cb);
   });
 
-  watch()(config.scripts.app, function() {
-    runSequence()(['scripts:app', 'jshint']);
+  watch()(config.scripts.app, (cb) => {
+    runSequence()('scripts:app', 'jshint', cb);
   });
 
-  watch()(config.scripts.head, function() {
-    runSequence()(['scripts:head']);
+  watch()(config.scripts.head, (cb) => {
+    runSequence()('scripts:head', cb);
   });
 
-  watch()(config.scripts.vendor, function() {
-    runSequence()(['scripts:vendor']);
+  watch()(config.scripts.vendor, (cb) => {
+    runSequence()('scripts:vendor', cb);
   });
 
-  watch()(config.scripts.scriptsMap, function() {
-    runSequence()(['scripts']);
+  watch()(config.scripts.scriptsMap, (cb) => {
+    runSequence()('scripts', cb);
   });
 
-  watch()(config.images, function() {
-    runSequence()(['images']);
+  watch()(config.images, (cb) => {
+    runSequence()('images', cb);
   });
 
-  watch()(config.vectors, function() {
-    runSequence()(['copy:iconFonts']);
+  watch()(config.vectors, (cb) => {
+    runSequence()('copy:iconFonts', cb);
   });
 
-  watch()(config.fonts, function() {
-    runSequence()(['copy:fonts:development']);
+  watch()(config.fonts, (cb) => {
+    runSequence()('copy:fonts:development', cb);
   });
 
-  watch()(config.sprites, function() {
-    runSequence()(['sprites']);
+  watch()(config.sprites, (cb) => {
+    runSequence()('sprites', cb);
   });
 
-  watch()(config.templates, function() {
+  watch()(config.templates, (cb) => {
     browsersync().reload();
+    cb();
   });
 });

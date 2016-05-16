@@ -4,7 +4,7 @@ var bower = lazyReq('bower');
 var fsExtra = lazyReq('fs-extra');
 var config = require('../../config');
 
-gulp().task('bower:install', ['bower:copyJson'], function (cb) {
+gulp().task('bower:install', ['bower:copyJson'], (cb) => {
 
   bower().commands.install([], {
     save: true
@@ -14,7 +14,7 @@ gulp().task('bower:install', ['bower:copyJson'], function (cb) {
     });
 });
 
-gulp().task('bower:copyJson', function(cb) {
+gulp().task('bower:copyJson', (cb) => {
   fsExtra().copySync(
     config.bower.jsonFile, 
     './bower.json'

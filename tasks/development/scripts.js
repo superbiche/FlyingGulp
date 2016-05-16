@@ -10,15 +10,17 @@ var browsersync = lazyReq('browser-sync');
 var plumber = lazyReq('gulp-plumber');
 var config = require('../../config').scripts;
 
-gulp().task('scripts', function () {
-  runSequence()([
-    'scripts:head',
-    'scripts:vendor',
-    'scripts:app'
-  ]);
+gulp().task('scripts', (cb) => {
+  runSequence()(
+    [
+      'scripts:head',
+      'scripts:vendor',
+      'scripts:app'
+    ]
+  );
 });
 
-gulp().task('scripts:app', ['clean:scripts:app'], function (cb) {
+gulp().task('scripts:app', ['clean:scripts:app'], (cb) => {
   return gulp().src(config.app.src)
     .pipe(plumber()())
     .pipe(sourcemaps().init())
@@ -29,7 +31,7 @@ gulp().task('scripts:app', ['clean:scripts:app'], function (cb) {
   cb();
 });
 
-gulp().task('scripts:vendor', ['clean:scripts:vendor'], function (cb) {
+gulp().task('scripts:vendor', ['clean:scripts:vendor'], (cb) => {
   return gulp().src(config.vendor.src)
     .pipe(plumber()())
     .pipe(concat()('vendor.js'))
@@ -37,7 +39,7 @@ gulp().task('scripts:vendor', ['clean:scripts:vendor'], function (cb) {
   cb();
 });
 
-gulp().task('scripts:head', ['clean:scripts:head'], function (cb) {
+gulp().task('scripts:head', ['clean:scripts:head'], (cb) => {
   return gulp().src(config.head.src)
     .pipe(plumber()())
     .pipe(concat()('head.js'))

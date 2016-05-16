@@ -11,7 +11,7 @@ gulp().task('clean', [
   'clean:images'
 ]);
 
-gulp().task('clean:styles', function (cb) {
+gulp().task('clean:styles', (cb) => {
   del()([
       config.sass.dest + '/**/*.{css,map}'
     ],
@@ -20,7 +20,7 @@ gulp().task('clean:styles', function (cb) {
   );
 });
 
-gulp().task('clean:scripts:all', function (cb) {
+gulp().task('clean:scripts:all', (cb) => {
   del()([
       config.scripts.dest + '**/*.{js,map}',
     ],
@@ -29,7 +29,7 @@ gulp().task('clean:scripts:all', function (cb) {
   );
 });
 
-gulp().task('clean:scripts:head', function (cb) {
+gulp().task('clean:scripts:head', (cb) => {
   del()([
       config.scripts.dest + 'head.min.js',
     ],
@@ -38,7 +38,7 @@ gulp().task('clean:scripts:head', function (cb) {
   );
 });
 
-gulp().task('clean:scripts:vendor', function (cb) {
+gulp().task('clean:scripts:vendor', (cb) => {
   del()([
       config.scripts.dest + 'vendor.js',
     ],
@@ -47,7 +47,7 @@ gulp().task('clean:scripts:vendor', function (cb) {
   );
 });
 
-gulp().task('clean:scripts:app', function (cb) {
+gulp().task('clean:scripts:app', (cb) => {
   del()([
       config.scripts.dest + 'app.{js,map}',
     ],
@@ -56,14 +56,14 @@ gulp().task('clean:scripts:app', function (cb) {
   );
 });
 
-gulp().task('clean:iconFonts', function (cb) {
+gulp().task('clean:iconFonts', (cb) => {
   del()(config.copy.iconFonts.dest + '*',
     cleanOptions,
     cb()
   );
 });
 
-gulp().task('clean:images', function (cb) {
+gulp().task('clean:images', (cb) => {
   del()(config.images.dest + '/*',
     cleanOptions,
     cb()

@@ -23,7 +23,7 @@ gulp().task('sprites', (cb) => {
 
   fs.readdirSync(spritesPath).forEach(function (el, i) {
     var fileStat,
-        spriteName;
+      spriteName;
     filePath = path.join(spritesPath, el);
     fileStat = fs.statSync(filePath);
 
