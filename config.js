@@ -5,7 +5,7 @@ var projectUrl        = 'http://test',
     srcAssets         = '../assets/src',
     buildAssets       = '../assets/build',
     productionAssets  = '../assets',
-    bowerJsonPath     = '../',
+    bowerJsonPath     = '../assets/src/bower.json',
     sassIgnore        = ['KNACSS', 'bourbon'],
     sassIgnorePrefix  = srcAssets + '/scss/vendor',
     sassIgnoreLength  = sassIgnore.length;
@@ -20,15 +20,6 @@ module.exports = {
   paths: {
     srcAssets: srcAssets,
     buildAssets: buildAssets
-  },
-  messages: {
-    sass: {
-      startCompiling: 'Compiling Sass...',
-      onError: 'Sass compilation failed: '
-    },
-    browserify: {
-      startCompiling: 'Compiling JavaScript...'
-    }
   },
   autoprefixer: {
     browsers: [

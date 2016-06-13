@@ -1,25 +1,25 @@
 var lazyReq = require('lazy-req')(require);
-var gulp = lazyReq('gulp');
-var spritesmith = lazyReq('gulp.spritesmith');
+var gulp = lazyReq('gulp')();
+var spritesmith = lazyReq('gulp.spritesmith')();
 // var buffer = require('vinyl-buffer');
 // var merge = require('merge-stream');
 var config = require('../../config').sprites;
-var fs = require('fs');
-var path = require('path');
-var glob = require('glob').sync;
+var fs = lazyReq('fs')();
+var path = lazyReq('path')();
+var glob = lazyReq('glob')().sync;
 
 /**
  * Generate sprites and css files from PNGs
  */
-gulp().task('sprites', (cb) => {
+gulp.task('sprites', (cb) => {
   var spritesPath = config.src,
       sprite = {},
       filePath;
 
   // First process base sprite (images not in a subdirectory)
-  sprite.data = gulp().src(path.join(spritesPath, '*.png')).pipe(spritesmith()(config.options));
-  sprite.data.img.pipe(gulp().dest(config.dest.image));
-  sprite.data.css.pipe(gulp().dest(config.dest.css));
+  sprite.data = gulp.src(path.join(spritesPath, '*.png')).pipe(spritesmith(config.options));
+  sprite.data.img.pipe(gulp.dest(config.dest.image));
+  sprite.data.css.pipe(gulp.dest(config.dest.css));
 
   fs.readdirSync(spritesPath).forEach(function (el, i) {
     var fileStat,
@@ -32,9 +32,9 @@ gulp().task('sprites', (cb) => {
       // Build sprite data from this subdirectory
       config.options.imgName = spriteName + '.png';
       config.options.cssName = spriteName + '.css';
-      sprite.data = gulp().src(path.join(filePath, '*.png')).pipe(spritesmith()(config.options));
-      sprite.data.img.pipe(gulp().dest(config.dest.image));
-      sprite.data.css.pipe(gulp().dest(config.dest.css));
+      sprite.data = gulp.src(path.join(filePath, '*.png')).pipe(spritesmith(config.options));
+      sprite.data.img.pipe(gulp.dest(config.dest.image));
+      sprite.data.css.pipe(gulp.dest(config.dest.css));
     }
   });
   cb();

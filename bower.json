@@ -1,13 +1,13 @@
 {
-  "name": "bla-gulp-workflow",
+  "name": "komilfo_theme",
   "private": true,
   "dependencies": {
     "modernizr": "latest",
     "jquery": "1.11.1",
     "colorbox": "latest",
+    "lightgallery": "latest",
     "jquery-cycle2": "latest",
-    "URIjs": "latest",
-    "jquery-ui-selectmenu": "https://github.com/fnagel/jquery-ui.git#selectmenu"
+    "mustache.js": "latest"
   },
   "exportsOverride": {
     "modernizr": {

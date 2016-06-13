@@ -1,4 +1,10 @@
 # Changelog 
+## 0.3.1 -  
+  * 
+  * Rewrite task callbacks to arrow functions  
+  * Fix node-sass bindings  
+  * Fix typo in iconfonts template  
+  * Fix missing callbacks that were breaking run-sequence  
 ## 0.3.0 - 
   * Changed the icon font generator to gulp-iconfont  
   * Updated deprecated dependencies  
