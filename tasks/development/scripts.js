@@ -16,7 +16,8 @@ gulp.task('scripts', (cb) => {
       'scripts:head',
       'scripts:vendor',
       'scripts:app'
-    ]
+    ],
+    cb
   );
 });
 
@@ -28,7 +29,6 @@ gulp.task('scripts:app', ['clean:scripts:app'], (cb) => {
     .pipe(uglify())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(config.dest));
-  cb();
 });
 
 gulp.task('scripts:vendor', ['clean:scripts:vendor'], (cb) => {
@@ -36,7 +36,6 @@ gulp.task('scripts:vendor', ['clean:scripts:vendor'], (cb) => {
     .pipe(plumber())
     .pipe(concat('vendor.js'))
     .pipe(gulp.dest(config.dest));
-  cb();
 });
 
 gulp.task('scripts:head', ['clean:scripts:head'], (cb) => {
@@ -44,5 +43,4 @@ gulp.task('scripts:head', ['clean:scripts:head'], (cb) => {
     .pipe(plumber())
     .pipe(concat('head.js'))
     .pipe(gulp.dest(config.dest));
-  cb();
 });
