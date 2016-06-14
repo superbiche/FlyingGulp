@@ -216,7 +216,7 @@ module.exports = {
       scriptsMap: srcAssets + '/javascripts/scripts-map.js'
     },
     sprites: srcAssets + '/images/sprites/**/*',
-    fonts: [srcAssets + '/fonts/**/*'],
+    fonts: srcAssets + '/fonts/**/*',
     templates: [srcAssets + '/**/*.{html,inc,php}']
 
   }
