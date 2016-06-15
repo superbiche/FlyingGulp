@@ -1,7 +1,7 @@
 /**
  * Gulp Workflow project configuration
  */
-var projectUrl        = 'http://artipole.dev',
+var projectUrl        = 'http://artipole-fg03.dev',
     srcAssets         = '../assets/src',
     buildAssets       = '../assets/build',
     productionAssets  = '../assets',
@@ -51,11 +51,7 @@ module.exports = {
       proxy: projectUrl,
       files: [
         buildAssets + '/css/*.css',
-        buildAssets + '/fonts/*',
-        buildAssets + '/img/**',
-        buildAssets + '/js/**/*.js',
         '!' + buildAssets + '/css/*.min.{css,map}',
-        '!' + buildAssets + '/js/footer.min.js' // don't trigger browser reload for footer.min.js changes
       ]
     },
     production: {
@@ -175,7 +171,7 @@ module.exports = {
     },
     vendor: {
       src: jsList.getBundleList('vendor', srcAssets + '/')
-    }
+    },
   },
   sprites: {
     src: srcAssets + '/images/sprites',

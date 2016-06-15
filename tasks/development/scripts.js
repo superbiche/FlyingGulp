@@ -1,5 +1,5 @@
 var lazyReq = require('lazy-req')(require);
-var gulp = lazyReq('gulp')();
+var gulp = require('gulp');
 var runSequence = lazyReq('run-sequence')();
 var sourcemaps = lazyReq('gulp-sourcemaps')();
 var concat = lazyReq('gulp-concat')();
@@ -21,7 +21,7 @@ gulp.task('scripts', (cb) => {
   );
 });
 
-gulp.task('scripts:app', ['clean:scripts:app'], (cb) => {
+gulp.task('scripts:app', ['clean:scripts:app'], () => {
   return gulp.src(config.app.src)
     .pipe(plumber())
     .pipe(sourcemaps.init())
@@ -31,14 +31,14 @@ gulp.task('scripts:app', ['clean:scripts:app'], (cb) => {
     .pipe(gulp.dest(config.dest));
 });
 
-gulp.task('scripts:vendor', ['clean:scripts:vendor'], (cb) => {
+gulp.task('scripts:vendor', ['clean:scripts:vendor'], () => {
   return gulp.src(config.vendor.src)
     .pipe(plumber())
     .pipe(concat('vendor.js'))
     .pipe(gulp.dest(config.dest));
 });
 
-gulp.task('scripts:head', ['clean:scripts:head'], (cb) => {
+gulp.task('scripts:head', ['clean:scripts:head'], () => {
   return gulp.src(config.head.src)
     .pipe(plumber())
     .pipe(concat('head.js'))
