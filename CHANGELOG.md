@@ -1,6 +1,9 @@
 # Changelog 
+## 0.3.2 -
+  * Reverted calls to lazyReq(module)()  
 ## 0.3.1 -  
-  * 
+  * Refactored to ES6 (amap)
+  * Install bower deps on watch/build
   * Rewrite task callbacks to arrow functions  
   * Fix node-sass bindings  
   * Fix typo in iconfonts template  

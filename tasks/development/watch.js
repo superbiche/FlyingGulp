@@ -1,9 +1,10 @@
-var lazyReq = require('lazy-req')(require);
-var gulp = require('gulp');
-var watch = require('gulp-watch');
-var browsersync = require('browser-sync');
-var runSequence = lazyReq('run-sequence');
-var config = require('../../config').watch;
+const lazyReq = require('lazy-req')(require);
+const gulp = require('gulp');
+const watch = require('gulp-watch');
+const browsersync = require('browser-sync');
+const runSequence = lazyReq('run-sequence');
+
+const config = require('../../config').watch;
 
 /**
  * Start browsersync task and then watch files for changes

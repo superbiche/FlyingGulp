@@ -1,15 +1,16 @@
-var lazyReq = require('lazy-req')(require);
-var gulp = lazyReq('gulp')();
-var concat = lazyReq('gulp-concat')();
-var rename = lazyReq('gulp-rename')();
-var size = lazyReq('gulp-size')();
-var uglify = lazyReq('gulp-uglify')();
-var removeLines = lazyReq('gulp-remove-lines')();
-var runSequence = lazyReq('run-sequence')();
-var config = require('../../config').optimize.js;
+const lazyReq = require('lazy-req')(require);
+const gulp = lazyReq('gulp');
+const concat = lazyReq('gulp-concat');
+const rename = lazyReq('gulp-rename');
+const size = lazyReq('gulp-size');
+const uglify = lazyReq('gulp-uglify');
+const removeLines = lazyReq('gulp-remove-lines');
+const runSequence = lazyReq('run-sequence');
 
-gulp.task('optimize:js', (cb) => {
-  runSequence([
+const config = require('../../config').optimize.js;
+
+gulp().task('optimize:js', (cb) => {
+  runSequence()([
       'optimize:js:head',
       'optimize:js:footer'
     ],
@@ -17,36 +18,34 @@ gulp.task('optimize:js', (cb) => {
   );
 });
 
-gulp.task('optimize:js:head', (cb) => {
-  return gulp.src(config.head.src)
-    .pipe(concat(config.head.name))
-    .pipe(removeLines({
+gulp().task('optimize:js:head', () => {
+  return gulp().src(config.head.src)
+    .pipe(concat()(config.head.name))
+    .pipe(removeLines()({
       'filters': [
         /(\/\/[#@] sourceMappingURL=[^\s'"]*)/
       ]
     }))
-    .pipe(uglify())
-    .pipe(rename({
+    .pipe(uglify()())
+    .pipe(rename()({
       suffix: '.min'
     }))
-    .pipe(gulp.dest(config.dest))
-    .pipe(size());
-  cb();
+    .pipe(gulp().dest(config.dest))
+    .pipe(size()());
 });
 
-gulp.task('optimize:js:footer', (cb) => {
-  return gulp.src(config.footer.src)
-    .pipe(uglify())
-    .pipe(concat(config.footer.name))
-    .pipe(removeLines({
+gulp().task('optimize:js:footer', () => {
+  return gulp().src(config.footer.src)
+    .pipe(uglify()())
+    .pipe(concat()(config.footer.name))
+    .pipe(removeLines()({
       'filters': [
         /(\/\/[#@] sourceMappingURL=[^\s'"]*)/
       ]
     }))
-    .pipe(rename({
+    .pipe(rename()({
       suffix: '.min'
     }))
-    .pipe(gulp.dest(config.dest))
-    .pipe(size());
-  cb();
+    .pipe(gulp().dest(config.dest))
+    .pipe(size()());
 });

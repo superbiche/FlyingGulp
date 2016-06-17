@@ -1,11 +1,9 @@
-var lazyReq = require('lazy-req')(require);
-var gulp = lazyReq('gulp')();
-var browsersync = lazyReq('browser-sync')();
-var config = require('../../config').browsersync.production;
+const lazyReq = require('lazy-req')(require);
+const gulp = lazyReq('gulp');
+const browsersync = lazyReq('browser-sync');
 
-/**
- * Start a server and watch changes with BrowserSync
- */
-gulp.task('browsersync:production', ['build:production'], () => {
-  browsersync(config);
+const config = require('../../config').browsersync.production;
+
+gulp().task('browsersync:production', ['build:production'], () => {
+  browsersync()(config);
 });

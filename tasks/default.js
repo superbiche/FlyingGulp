@@ -1,5 +1,5 @@
-var lazyReq = require('lazy-req')(require);
-var gulp = lazyReq('gulp');
+const lazyReq = require('lazy-req')(require);
+const gulp = lazyReq('gulp');
 
 gulp().task('default', [
   'watch'

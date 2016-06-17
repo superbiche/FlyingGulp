@@ -1,15 +1,15 @@
-var lazyReq = require('lazy-req')(require);
-var gulp = lazyReq('gulp')();
-var imagemin = lazyReq('gulp-imagemin')();
-var size = lazyReq('gulp-size')();
-var config = require('../../config').optimize.images;
+const lazyReq = require('lazy-req')(require);
+const gulp = lazyReq('gulp');
+const imagemin = lazyReq('gulp-imagemin');
+const size = lazyReq('gulp-size');
+
+const config = require('../../config').optimize.images;
 
 /**
  * Copy and minimize image files
  */
-gulp.task('optimize:images', function () {
-  return gulp.src(config.src)
-    .pipe(imagemin(config.options))
-    .pipe(gulp.dest(config.dest))
-    .pipe(size());
+gulp().task('optimize:images', () => {
+  return gulp().src(config.src)
+    .pipe(gulp().dest(config.dest))
+    .pipe(size()());
 });
