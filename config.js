@@ -1,7 +1,7 @@
 /**
  * Gulp Workflow project configuration
  */
-var projectUrl        = 'http://artipole-fg03.dev',
+var projectUrl        = 'http://example.dev',
     srcAssets         = '../assets/src',
     buildAssets       = '../assets/build',
     productionAssets  = '../assets',
