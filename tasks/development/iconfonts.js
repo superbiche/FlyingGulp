@@ -2,6 +2,7 @@ const lazyReq = require('lazy-req')(require);
 const gulp = lazyReq('gulp');
 const iconfont = lazyReq('gulp-iconfont');
 const consolidate = lazyReq('gulp-consolidate');
+const bs = lazyReq('browser-sync');
 
 const config = require('../../config').iconfonts;
 const runTimestamp = Math.round(Date.now() / 1000);
@@ -21,5 +22,6 @@ gulp().task('iconfonts', ['clean:iconFonts'], (cb) => {
         }))
         .pipe(gulp().dest(config.options.cssDest));
     })
-    .pipe(gulp().dest(config.dest));
+    .pipe(gulp().dest(config.dest))
+    .pipe(bs().stream());
 });

@@ -8,8 +8,7 @@ const cleanOptions = config.clean.options;
 gulp().task('clean', [
   'clean:styles', 
   'clean:scripts:all', 
-  'clean:iconFonts'/*,
-  'clean:images'*/
+  'clean:iconFonts'
 ]);
 
 gulp().task('clean:styles', (cb) => {
@@ -17,7 +16,7 @@ gulp().task('clean:styles', (cb) => {
       config.sass.dest + '/**/*.{css,map}'
     ],
     cleanOptions,
-    cb()
+    cb
   );
 });
 
@@ -26,7 +25,7 @@ gulp().task('clean:scripts:all', (cb) => {
       config.scripts.dest + '**/*.{js,map}',
     ],
     cleanOptions,
-    cb()
+    cb
   );
 });
 
@@ -35,7 +34,7 @@ gulp().task('clean:scripts:head', (cb) => {
       config.scripts.dest + 'head.min.js',
     ],
     cleanOptions,
-    cb()
+    cb
   );
 });
 
@@ -44,7 +43,7 @@ gulp().task('clean:scripts:vendor', (cb) => {
       config.scripts.dest + 'vendor.js',
     ],
     cleanOptions,
-    cb()
+    cb
   );
 });
 
@@ -53,13 +52,13 @@ gulp().task('clean:scripts:app', (cb) => {
       config.scripts.dest + 'app.{js,map}',
     ],
     cleanOptions,
-    cb()
+    cb
   );
 });
 
 gulp().task('clean:iconFonts', (cb) => {
   del()(config.copy.iconFonts.dest + '*',
     cleanOptions,
-    cb()
+    cb
   );
 });

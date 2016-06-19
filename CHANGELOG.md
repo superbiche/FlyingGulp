@@ -1,4 +1,18 @@
 # Changelog 
+## 0.4.0 - 
+  * Now using JSPM to manage dependencies
+  * Therefore, we got rid of Bower
+  * Scripts are now written in TypeScript, allowing vanilla JS to avoid breaking BC in a project
+  * Add TSLint to lint TypeScript files
+  * Modular TS=>JS architecture: TS can be written in subdirectories that will result in separate bundles
+  * Add gulp-changed-in-place to avoid transpiling files that did not change
+  * New scripts management : in dev, scripts are now 
+    * loaded async by SystemJS
+    * loaded in ES6 and transpiled in-browser with SystemJS
+  * New scripts bundle management : in production, SystemJS loads bundles created with JSPM Builder
+  * Javascript custom vendors are managed in src/js/vendor, with mappings made possible by JSPM's map config
+  * @todo browsersync api
+  
 ## 0.3.2 -
   * Reverted calls to lazyReq(module)()  
 ## 0.3.1 -  

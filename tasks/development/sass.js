@@ -1,7 +1,6 @@
 const lazyReq = require('lazy-req')(require);
 const gulp = lazyReq('gulp');
 const plumber = lazyReq('gulp-plumber');
-const browsersync = lazyReq('browser-sync');
 const sass = lazyReq('gulp-sass');
 const filter = lazyReq('gulp-filter');
 const autoprefixer = lazyReq('gulp-autoprefixer');

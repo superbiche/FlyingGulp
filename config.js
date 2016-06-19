@@ -120,6 +120,11 @@ module.exports = {
       '!' + srcAssets + '/javascripts/vendor/**/*.js'
     ]
   },
+  jspm: {
+    bundles: {
+      
+    }
+  },
   optimize: {
     css: {
       src: buildAssets + '/css/*.css',
@@ -197,6 +202,12 @@ module.exports = {
       imgPath: '../img/sprite.png'
     }
   },
+  typescript: {
+    development: {
+      src: [srcAssets + '/ts/**/*.ts'],
+      dest: srcAssets + '/js',
+    },
+  },
   watch: {
     vectors: srcAssets + '/images/vectors/**/*',
     images: [
@@ -205,6 +216,10 @@ module.exports = {
       '!' + srcAssets + '/images/vectors' // ignore iconfonts folder
     ],
     sass: srcAssets + '/scss/**/*.{sass,scss}',
+    typescript: [
+      srcAssets + '/ts/**/*.ts',
+      srcAssets + '/jspm.config.js'
+    ],
     scripts: {
       app: srcAssets + '/javascripts/**/*.js',
       vendor: [srcAssets + '/_bower_components/*', srcAssets + '/javascripts/scripts-map.js'],

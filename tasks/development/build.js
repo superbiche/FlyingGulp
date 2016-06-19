@@ -7,14 +7,13 @@ const runSequence = lazyReq('run-sequence');
  */
 gulp().task('build', (cb) => {
   runSequence()(
-    'bower:install',
     'clean',
     'sprites',
     'images',
     'copy:iconFonts',
     [
       'sass',
-      'scripts',
+      'typescript',
       'copy:fonts:development'
     ],
     cb

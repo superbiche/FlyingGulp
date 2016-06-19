@@ -1,7 +1,7 @@
 const lazyReq = require('lazy-req')(require);
 const gulp = require('gulp');
 const watch = require('gulp-watch');
-const browsersync = require('browser-sync');
+const bs = lazyReq('browser-sync');
 const runSequence = lazyReq('run-sequence');
 
 const config = require('../../config').watch;
@@ -14,35 +14,27 @@ gulp.task('watch', ['browsersync:development'],  (cb) => {
     runSequence()('sass');
   });
 
-  watch(config.scripts.app, () => {
-    runSequence()('scripts:app', 'jshint', browsersync.reload);
-  });
-
-  watch(config.scripts.head, () => {
-    runSequence()('scripts:head', browsersync.reload);
-  });
-
-  watch(config.scripts.vendor, () => {
-    runSequence()('scripts:vendor', browsersync.reload);
+  watch(config.typescript, () => {
+    runSequence()('typescript');
   });
 
   watch(config.images, () => {
-    runSequence()('images', browsersync.reload);
+    runSequence()('images');
   });
 
   watch(config.vectors, () => {
-    runSequence()('copy:iconFonts', browsersync.reload);
+    runSequence()('copy:iconFonts');
   });
 
   watch(config.fonts, () => {
-    runSequence()('copy:fonts:development', browsersync.reload);
+    runSequence()('copy:fonts:development');
   });
 
   watch(config.sprites, () => {
-    runSequence()('sprites', browsersync.reload);
+    runSequence()('sprites', bs().reload);
   });
 
   watch(config.templates, () => {
-    browsersync.reload();
+    bs().reload();
   });
 });
