@@ -1,4 +1,7 @@
 # Changelog 
+## 0.4.0 -  
+  * Add Webpack to manage JS/Babel for now and prepare for a progressive move to all Webpack.
+  * Add dotenv to manage environment variables
 ## 0.3.1 -  
   * 
   * Rewrite task callbacks to arrow functions  

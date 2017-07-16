@@ -13,16 +13,9 @@ gulp.task('watch', ['browsersync:development'],  (cb) => {
     runSequence()('sass');
   });
 
-  watch(config.scripts.app, () => {
-    runSequence()('scripts:app', 'jshint', browsersync.reload);
-  });
-
-  watch(config.scripts.head, () => {
-    runSequence()('scripts:head', browsersync.reload);
-  });
-
-  watch(config.scripts.vendor, () => {
-    runSequence()('scripts:vendor', browsersync.reload);
+  watch(config.webpack.src, () => {
+    runSequence()('webpack');
+    //runSequence()('', browsersync.reload);
   });
 
   watch(config.images, () => {

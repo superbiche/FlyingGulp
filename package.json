@@ -1,13 +1,22 @@
 {
   "name": "flying-gulp",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "",
   "private": true,
-  "dependencies": {},
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp watch",
+    "build": "gulp build:production && webpack -p"
+  },
+  "dependencies": {
+    "webpack": "^3.3.0",
+    "webpack-stream": "^3.2.0"
+  },
   "devDependencies": {
     "bower": "^1.7.9",
     "browser-sync": "^2.13.0",
     "del": "^1.1.1",
+    "dotenv": "^4.0.0",
     "fs-extra": "^0.30.0",
     "glob": "^7.0.3",
     "gulp": "^3.9.1",

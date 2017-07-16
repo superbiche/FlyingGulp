@@ -1,16 +1,15 @@
 /**
  * Gulp Workflow project configuration
  */
-var projectUrl        = 'http://artipole-fg03.dev',
-    srcAssets         = '../assets/src',
-    buildAssets       = '../assets/build',
-    productionAssets  = '../assets',
-    bowerJsonPath     = '../assets/src/bower.json',
+
+require('dotenv').config()   
+
+var projectUrl        = process.env.FG_PROJECT_URL,
+    srcAssets         = '../src',
+    buildAssets       = '../dist',
     sassIgnore        = ['KNACSS', 'bourbon'],
     sassIgnorePrefix  = srcAssets + '/scss/vendor',
     sassIgnoreLength  = sassIgnore.length;
-
-var jsList = require(srcAssets + '/javascripts/scripts-map.js');
 
 while (sassIgnoreLength--) {
   sassIgnore[sassIgnoreLength] = '!' + sassIgnorePrefix + '/' + sassIgnore[sassIgnoreLength] + '/**/*.{sass,scss}';
@@ -43,9 +42,6 @@ module.exports = {
     src: buildAssets + '/css/**/*.css',
     dest: buildAssets + '/css'
   },
-  bower: {
-    jsonFile: bowerJsonPath
-  },
   browsersync: {
     development: {
       proxy: projectUrl,
@@ -63,9 +59,6 @@ module.exports = {
     development: [
       buildAssets + '/{css,fonts,js,img}/**/*'
     ],
-    production: [
-      productionAssets + '/{css,fonts,js,img}/**/*',
-    ],
     options: {
       force: true
     }
@@ -79,10 +72,6 @@ module.exports = {
           '!' + srcAssets + '/fonts/iconfont/**/*'
         ],
         dest: buildAssets + '/fonts'
-      },
-      production: {
-        src: buildAssets + '/fonts/**/*',
-        dest: productionAssets + '/fonts'
       }
     },
     iconFonts: {
@@ -99,7 +88,7 @@ module.exports = {
       formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
       autohint: true,
       normalize: true,
-      cssTemplatePath: 'templates/_iconfonts.scss',
+      cssTemplatePath: 'gulp/util/templates/_iconfonts.scss',
       cssFontPath: '../fonts/iconfonts/',
       cssDest: srcAssets + '/scss/base',
       cssClassName: 'icon'
@@ -114,39 +103,17 @@ module.exports = {
     ],
     dest: buildAssets + '/img'
   },
-  jshint: {
-    src: [
-      srcAssets + '/javascripts/**/*.js',
-      '!' + srcAssets + '/javascripts/vendor/**/*.js'
-    ]
-  },
   optimize: {
     css: {
       src: buildAssets + '/css/*.css',
-      dest: productionAssets + '/css/',
+      dest: buildAssets + '/css/',
       options: {
         compatibility: 'ie8'
       }
     },
-    js: {
-      head: {
-        src: [
-          buildAssets + '/js/head.js'
-        ],
-        name: 'head.js'
-      },
-      footer: {
-        src: [
-          buildAssets + '/js/vendor.js',
-          buildAssets + '/js/app.js'
-        ],
-        name: 'footer.js'
-      },
-      dest: productionAssets + '/js'
-    },
     images: {
       src: buildAssets + '/img/**/*.{jpg,jpeg,png,gif,svg}',
-      dest: productionAssets + '/img/',
+      dest: buildAssets + '/img/',
       options: {
         progressive: true,
         svgoPlugins: [{removeViewBox: false}]
@@ -159,19 +126,6 @@ module.exports = {
     options: {
       errLogToConsole: true
     }
-  },
-  scripts: {
-    dest: buildAssets + '/js/',
-    head: {
-      src: jsList.getBundleList('head', srcAssets + '/'),
-      minify: true
-    },
-    app: {
-      src: jsList.getBundleList('app', srcAssets + '/javascripts/')
-    },
-    vendor: {
-      src: jsList.getBundleList('vendor', srcAssets + '/')
-    },
   },
   sprites: {
     src: srcAssets + '/images/sprites',
@@ -215,5 +169,9 @@ module.exports = {
     fonts: srcAssets + '/fonts/**/*',
     templates: [srcAssets + '/**/*.{html,inc,php}']
 
+  },
+  webpack: {
+    src: 'src/**/*.js',
+    dest: './dist',
   }
 };

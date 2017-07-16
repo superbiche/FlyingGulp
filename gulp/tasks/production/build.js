@@ -5,17 +5,14 @@ var runSequence = lazyReq('run-sequence')();
 /**
  * Run all tasks needed for a build in defined order
  */
-gulp.task('build', (cb) => {
+gulp.task('build:production', (cb) => {
   runSequence(
-    'bower:install',
-    'clean',
-    'sprites',
-    'images',
-    'copy:iconFonts',
-    [
-      'sass',
-      'scripts',
-      'copy:fonts:development'
+    'clean:all',
+    'build', [
+      'copy:fonts',
+      'optimize:css',
+      'webpack:production',
+      'optimize:images'
     ],
     cb
   );
