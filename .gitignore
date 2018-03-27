@@ -4,3 +4,5 @@ bower.json
 /src
 /dist
 index.html
+.env
+*.log

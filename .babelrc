@@ -1,0 +1,74 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "forceAllTransforms": true,
+      "modules": false,
+      "useBuiltIns": "entry",
+      "targets": {
+        "browsers": [
+          "last 2 versions",
+          "safari > 7",
+          "ie > 9",
+          "edge > 15"
+        ]
+      }
+    }]
+  ],
+  "plugins": [
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    "@babel/plugin-transform-destructuring",
+    ["@babel/plugin-proposal-object-rest-spread", {
+      "useBuiltIns": true
+    }],
+    "@babel/plugin-proposal-decorators",
+    ["@babel/plugin-transform-runtime", {
+      "helpers": false,
+      "polyfill": false,
+      "regenerator": true
+    }],
+    ["@babel/plugin-transform-regenerator", {
+      "async": false
+    }],
+    "transform-imports"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "@babel/plugin-syntax-dynamic-import"
+      ]
+    },
+    "production": {
+      "compact": true,
+      "presets": [
+        ["@babel/preset-env", {
+          "forceAllTransforms": true,
+          "modules": false,
+          "useBuiltIns": "entry",
+          "targets": {
+            "browsers": [
+              "last 2 versions",
+              "safari > 8",
+              "ie > 9"
+            ]
+          }
+        }]
+      ],
+      "plugins": [
+        "@babel/plugin-syntax-dynamic-import"
+      ]
+    },
+    "test": {
+      "presets": [
+        ["@babel/preset-env", {
+          "modules": false,
+          "targets": {
+            "node": "current"
+          }
+        }]
+      ],
+      "plugins": [
+        "@babel/plugin-transform-modules-commonjs"
+      ]
+    }
+  }
+}
