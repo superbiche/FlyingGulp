@@ -1,3 +1,6 @@
 .idea
 /node_modules
 bower.json
+/src
+/dist
+index.html

@@ -1,1 +1,1 @@
-# FlyingGulp: a wonderful Gulp workflow for theme developers
+# FlyingGulp: a modular, full-featured Gulp workflow for non-ES-only frontends
