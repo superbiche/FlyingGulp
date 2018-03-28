@@ -5,27 +5,24 @@
 const path = require('path')
 require('dotenv').config()
 
-var projectUrl = process.env.BS_PROXY_URL,
-  srcAssets = path.resolve('src'),
-  buildAssets = path.resolve('dist'),
-  templatesDir = path.resolve('templates'),
-  sassIgnore = [],
-  sassIgnorePrefix = path.join(srcAssets, 'styles', 'vendor'),
-  sassIgnoreLength = sassIgnore.length
+const projectUrl = process.env.BS_PROXY_URL
+const srcAssets = path.resolve('src')
+const buildAssets = path.resolve('dist')
+//const templatesDir = path.resolve('templates')
+const sassIgnore = []
+const sassIgnorePrefix = path.join(srcAssets, 'styles', 'vendor')
+let sassIgnoreLength = sassIgnore.length
 
 while (sassIgnoreLength--) {
-  sassIgnore[sassIgnoreLength] =
-    '!' +
-    sassIgnorePrefix +
-    '/' +
-    sassIgnore[sassIgnoreLength] +
-    '/**/*.{sass,scss}'
+  sassIgnore[sassIgnoreLength] = `!${sassIgnorePrefix}/${
+    sassIgnore[sassIgnoreLength]
+  }/**/*.{sass,scss}`
 }
 
 module.exports = {
   paths: {
-    srcAssets: srcAssets,
-    buildAssets: buildAssets,
+    srcAssets,
+    buildAssets,
     src: {
       js: path.join(srcAssets, 'js'),
     },
@@ -171,7 +168,7 @@ module.exports = {
       srcAssets + '/img/**/*',
       '!' + srcAssets + '/img/sprites', // ignore sprites folder
     ],
-    sass: srcAssets + '/styles/**/*.{sass,scss}',
+    sass: `${srcAssets}/styles/**/*.{sass,scss}`,
     sprites: srcAssets + '/img/sprites/**/*',
     fonts: srcAssets + '/fonts/**/*',
     templates: ['./**/*.{html,inc,php}'],

@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp watch",
-    "build": "gulp build:production && webpack -p"
+    "build": "gulp build:production"
   },
   "dependencies": {
     "font-awesome": "^4.7.0",
@@ -53,6 +53,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "fs-extra": "^0.30.0",
+    "generate-changelog": "^1.7.0",
     "glob": "^7.0.3",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",

@@ -10,10 +10,9 @@
  * @see README.md
  */
 
-
-var requireDir = require('require-dir');
+const requireDir = require('require-dir')
 
 // Require all tasks in gulp/tasks recursively
 requireDir('./gulp/tasks', {
-  recurse: true
-});
+  recurse: true,
+})
